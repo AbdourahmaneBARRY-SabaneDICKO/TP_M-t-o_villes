@@ -4,58 +4,85 @@
 	  <title>Météo des villes</title>
 	  <meta charset="UTF-8">
 	  <link rel="stylesheet" type="text/css" href="css/styles.css">
-	  <script>
-	  let villeCourant ="Lyon
-	  function showCity(){
-			console.log(villeCourant);
-	  }
+	  <script type="text/javascript" >
+	  	function showCity(){
+	  		let nomVilleSelectionnee = document.getElementById("selection").value;
+	  			ville = document.getElementById("ville");
+	  		let cities = document.getElementsByClassName("city");
+	  		for(i=0; i<cities.length; i++){
+	  			elt=document.getElementById(cities[i].id);
+	  			if(cities[i].id== nomVilleSelectionnee){
+	  				elt.style.display = "block";	  				
+	  				ville.innerHTML = cities[i].id;
+	  				
+    				}
+    			else {
+   						elt.style.display = "none";
+  					}
+	  		}
+	  	}
+	  	
 	  </script>
-	  
 
 	</head>
 	
-	<body onlaod="showCity()">
+	<body onload="showCity()">
 
-		<h1>TP Météo HTML</h1>
-	 <div class="flex">
-	 	<div>
-	 	<section class="Lyon">
-	 	
-	 	<h2 >Lyon</h2>
-	    <p > 5°, nuagée</p>
-	    <img src="img/des-nuages.png" alt="Le temps est gris" height="60" >
-	</section>
+		<h1 style="text-align: center;">TP Météo HTML</h1>
+		<div style=" margin-left: 15px; height: 30px">
+		<label> Selectionner une ville : </label>
+		<select onchange=showCity() id="selection"> 
+			<option value="">--Choisir une ville --</option>
+    		<option value="Lyon">Lyon</option>
+    		<option value="Bamako">Bamako</option>
+    		<option value="Conakry">Conakry</option>
+		</select>
+		</div>
+			<div style="display: flex;margin-left: 10px; float: left; height: 30px;">
+				<div> Vous avez choisi :</div>
+				<div id="ville"> </div>
+
+			
+		</div>
+		
+		<div class="flix">
+	 		<div id="Lyon" class="flex city"  >
+	 		<div style="float:left; margin-left: 10px;">
+	 			<h2 >Lyon</h2>
+	    		<p >5°, nuagée</p>
+			</div>
+			<div style="float: right; margin-right: 40px;">
+	   			<img src="img/des-nuages.png" alt="Le temps est gris" height="60" >
+			</div>
+		</div>
+		<div id="Bamako" class="flex city">
+			<div style="float:left; margin-left: 10px;">
+	  			<h2 >Bamako</h2>
+	  			<p >25°, Soleil</p>
+	  		</div>
+	  		<div style="float: right; margin-right: 40px;">
+	 			<img src="img/Soleil.png" alt="Température à Bamako, ensoleillé" height="60">
+	 		</div>
+ 
 	</div>
-	<div >
-		<section class="Bamako">
-	  <h2 >Bamako</h2>
-	  <p >25°, Soleil</p>
-	  <img src="img/Soleil.png" alt="Température à Bamako, ensoleillé" height="60">
-	</section> 
+	<div id="Conakry" class="flex city"> 
+	  	<div style="float:left; margin-left: 10px;">
+	  		<h2 >Conakry</h2>
+	  		<p >20°,Pluie</p>
+	  	</div>
+	  	<div style="float: right; margin-right: 40px;">
+	  		<img src="img/Pluie(1).png" alt="Pluie diluviene à Conakry" height="60" >
+		</div>
 	</div>
-	<div> 
-	  	<section class="Conakry">
-	  	<h2 >Conakry</h2>
-	  	<p >20°,Pluie</p>
-	  <img src="img/Pluie(1).png" alt="Pluie diluviene à Conakry" height="60" >
-	</section>
-	</div>
+
+	
 </div>
-  <label> 
 
-<select name="ville" id="ville-select">
-    <option value="">--Choisisez une ville--</option>
-    <option value="Lyon">Lyon</option>
-    <option value="Bamako">Bamako</option>
-    <option value="Conakry">Conakry</option>
-</select>
-</label>
 	</body>
 	<footer>
 		<h3>Sabane DICKO, Abdourahmane BARRY</h3>
 		<p> Icone météo par
-
 		<a href="https://www.flaticon.com/fr/" target="_BLANK">Lien vers Flaticon</a>
-	</p>
+		</p>
 	</footer>
 </html>
